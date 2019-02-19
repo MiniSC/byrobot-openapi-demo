@@ -1,6 +1,7 @@
 package com.indata.openapi.demo;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.indata.openapi.model.*;
 import com.indata.openapi.utils.IndataHttpUtils;
 import org.junit.Test;
@@ -34,11 +35,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class OpenApiDemoTest {
     //TODO app key  需要修改
-    private static final String APP_KEY = "*** 申请APP_KEY ***";
+//    private static final String APP_KEY = "*** 申请APP_KEY ***";
+    private static final String APP_KEY = "4FggOHgXXt8qBbOY";
     //TODO app SECRET  需要修改
-    private static final String APP_SECRET = "*** 申请APP_SECRET ***";
+//    private static final String APP_SECRET = "*** 申请APP_SECRET ***";
+    private static final String APP_SECRET = "bbQKTgVzAyjjPyK1l2j2PQSAz2IawT";
     //线上环境
-    private static final String BASE_URL = "http://api.byrobot.cn";
+//    private static final String BASE_URL = "http://api.byrobot.cn";
+    private static final String BASE_URL = "http://localhost:7070";
 
     /**
      * 1、获取公司列表
@@ -257,6 +261,22 @@ public class OpenApiDemoTest {
         String url = BASE_URL + "/openapi/v1/company/getPhones?companyId=" + companyId;
         String result = IndataHttpUtils.sendGet(url, APP_KEY, APP_SECRET);
         System.out.println("获取公司的主叫电话列表的结果:" + result);
+    }
+
+    @Test
+    public void addBlackListTest() {
+        String url = BASE_URL + "/openapi/v1/company/addBlackList";
+        BlackListParamVO blackListParamVO = new BlackListParamVO();
+        blackListParamVO.setBlacklistInfoGroupId(-1);
+        blackListParamVO.setName("测试");
+        blackListParamVO.setMobile("159xxxxxxxx");
+        blackListParamVO.setRemark("测试黑名单导入");
+        blackListParamVO.setCompanyId(1);
+
+        String json = JSON.toJSONString(blackListParamVO);
+        String result = IndataHttpUtils.sendPost(url, json, APP_KEY, APP_SECRET);
+        System.out.println("导入黑名单结果" + result);
+
     }
 
 }
