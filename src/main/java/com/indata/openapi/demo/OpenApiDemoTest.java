@@ -35,14 +35,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class OpenApiDemoTest {
     //TODO app key  需要修改
-//    private static final String APP_KEY = "*** 申请APP_KEY ***";
-    private static final String APP_KEY = "4FggOHgXXt8qBbOY";
+    private static final String APP_KEY = "*** 申请APP_KEY ***";
     //TODO app SECRET  需要修改
-//    private static final String APP_SECRET = "*** 申请APP_SECRET ***";
-    private static final String APP_SECRET = "bbQKTgVzAyjjPyK1l2j2PQSAz2IawT";
+    private static final String APP_SECRET = "*** 申请APP_SECRET ***";
     //线上环境
-//    private static final String BASE_URL = "http://api.byrobot.cn";
-    private static final String BASE_URL = "http://localhost:7070";
+    private static final String BASE_URL = "http://api.byrobot.cn";
 
     /**
      * 1、获取公司列表
