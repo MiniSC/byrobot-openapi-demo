@@ -35,11 +35,14 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class OpenApiDemoTest {
     //TODO app key  需要修改
-    private static final String APP_KEY = "*** 申请APP_KEY ***";
+//    private static final String APP_KEY = "*** 申请APP_KEY ***";
+    private static final String APP_KEY = "2iJISuKSGds93dmw";
     //TODO app SECRET  需要修改
-    private static final String APP_SECRET = "*** 申请APP_SECRET ***";
+//    private static final String APP_SECRET = "*** 申请APP_SECRET ***";
+    private static final String APP_SECRET = "h9yNtkyoSWR7J18XoBXErJEMDeAh5Y";
     //线上环境
-    private static final String BASE_URL = "http://api.byrobot.cn";
+   private static final String BASE_URL = "http://api.byrobot.cn";
+//    private static final String BASE_URL = "http://api.xinoa.cc";
 
     /**
      * 1、获取公司列表
@@ -262,13 +265,15 @@ public class OpenApiDemoTest {
 
     @Test
     public void addBlackListTest() {
+        Integer companyId = 1;
         String url = BASE_URL + "/openapi/v1/company/addBlackList";
         BlackListParamVO blackListParamVO = new BlackListParamVO();
         blackListParamVO.setBlacklistInfoGroupId(-1);
         blackListParamVO.setName("测试");
-        blackListParamVO.setMobile("159xxxxxxxx");
+        blackListParamVO.setMobile("15957182230");
         blackListParamVO.setRemark("测试黑名单导入");
-        blackListParamVO.setCompanyId(1);
+        blackListParamVO.setCompanyId(3813);
+
 
         String json = JSON.toJSONString(blackListParamVO);
         String result = IndataHttpUtils.sendPost(url, json, APP_KEY, APP_SECRET);
